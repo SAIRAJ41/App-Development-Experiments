@@ -1,7 +1,9 @@
-Flutter: Calculator App
+
+## Flutter: Calculator App
 This experiment dives into the world of cross-platform app development with the Flutter SDK. The project involves building a fully functional Calculator App, which serves as an excellent way to explore Flutter's reactive framework and widget-based architecture.
 
-Key Concept:
+
+## Key Concept:
 Widget Tree: Understanding how to compose a UI using a hierarchy of widgets.
 
 Stateless vs. Stateful Widgets: Differentiating between widgets that don't change and those that do, and learning how to manage application state.
