@@ -1,7 +1,9 @@
-3. Android Studio: Counter App
+
+## Android Studio: Counter App
 This project is a hands-on introduction to native Android development using Android Studio. The goal is to build a simple Counter App, which helps in understanding the basic workflow, UI components, and state management within the Android ecosystem.
 
-Key Concepts:
+
+## Key Concepts:
 Android Studio IDE: Getting familiar with the development environment.
 
 Layouts (XML): Designing the user interface using XML.
