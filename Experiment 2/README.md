@@ -1,7 +1,9 @@
-2. Dart Fundamentals: Input, Output & Loops
-This experiment focuses on the foundational concepts of the Dart programming language. The project is a simple command-line application that demonstrates how to handle user input, display output, and utilize different types of loops.
 
-Key Concepts:
+## Dart Fundamentals
+Input, Output & Loops This experiment focuses on the foundational concepts of the Dart programming language. The project is a simple command-line application that demonstrates how to handle user input, display output, and utilize different types of loops.
+
+
+## Key Concepts:
 Input/Output (I/O): Learning to interact with the user by accepting input and providing feedback.
 
 Loops: Practicing for, while, or do-while loops to perform repetitive tasks efficiently.
