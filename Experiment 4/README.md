@@ -1,16 +1,15 @@
-# first_app
 
-A new Flutter project.
+## Flutter: Calculator App
+This experiment dives into the world of cross-platform app development with the Flutter SDK. The project involves building a fully functional Calculator App, which serves as an excellent way to explore Flutter's reactive framework and widget-based architecture.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Key Concept:
+Widget Tree: Understanding how to compose a UI using a hierarchy of widgets.
 
-A few resources to get you started if this is your first Flutter project:
+Stateless vs. Stateful Widgets: Differentiating between widgets that don't change and those that do, and learning how to manage application state.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Layouts: Using widgets like Row, Column, and Expanded to create a responsive and dynamic interface.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Event Handling: Implementing button logic and connecting it to the app's functionality.
+
+The folder contains all the relevant code files, a dedicated README.md for this project, and a screenshot of the completed app.
