@@ -19,6 +19,12 @@ An exploration of the Flutter framework by building a functional calculator app.
 5. React Native: To-Do List App
 This project uses the React Native framework to create a to-do list application. It focuses on using React components, managing application state, and building a cross-platform mobile app from a single codebase.
 
+7. Registration Form :
+This project focuses on building a complete registration form UI that utilizes various input types, including text fields, radio buttons, and dropdown/select menus. The goal is to master form layout, state handling across multiple inputs, and implement basic client-side input validation logic.
+
+8. Navigation App :
+An exploration into common mobile app navigation structures. This experiment implements both tab-based navigation (for quickly switching between main views) and a drawer navigation (a side menu for secondary or less-frequently used options). This is a crucial step for understanding how to structure a multi-screen, user-friendly mobile application.
+
 📁 Repository Structure
 Each experiment is organized in its own folder, containing all the necessary source code files, a README.md specific to that project, and a screenshot of the output. This makes it easy to navigate and understand each individual experiment.
 
