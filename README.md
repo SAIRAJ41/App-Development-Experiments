@@ -25,6 +25,12 @@ This project focuses on building a complete registration form UI that utilizes v
 8. Navigation App :
 An exploration into common mobile app navigation structures. This experiment implements both tab-based navigation (for quickly switching between main views) and a drawer navigation (a side menu for secondary or less-frequently used options). This is a crucial step for understanding how to structure a multi-screen, user-friendly mobile application.
 
+9. SQLite :
+This experiment extends the basic calculator app (Expt 4) by introducing local data persistence. Using SQLite, the app will store and retrieve a history of calculations, demonstrating how to perform basic CRUD operations directly on the device's storage. This is a practical application of the sqflite package in a Flutter environment.
+
+10. Firestore :
+Building on the React Native To-Do List (Expt 5), this project focuses on integrating a cloud database using Google Firestore. The goal is to make the to-do list sync across devices in real-time. This involves setting up the React Native environment for Firebase, managing asynchronous data streams, and understanding authentication for read/write permissions.
+
 📁 Repository Structure
 Each experiment is organized in its own folder, containing all the necessary source code files, a README.md specific to that project, and a screenshot of the output. This makes it easy to navigate and understand each individual experiment.
 
