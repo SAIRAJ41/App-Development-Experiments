@@ -1,10 +1,11 @@
-# first_app
+# SQLite
+This experiment extends the basic calculator app (Expt 4) by introducing local data persistence. Using SQLite, the app will store and retrieve a history of calculations, demonstrating how to perform basic CRUD operations directly on the device's storage. This is a practical application of the sqflite package in a Flutter environment.
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
+## Key Features :
+Framework: Flutter.
+Database: Local SQLite (via sqflite package).
+Functionality: Implement CRUD operations to store and retrieve a history of calculations.
+Focus: Data Persistence and asynchronous database handling (async/await).
 
 A few resources to get you started if this is your first Flutter project:
 
