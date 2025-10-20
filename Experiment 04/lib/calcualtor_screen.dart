@@ -60,6 +60,10 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
+    
+    // The main display text is correctly set to the combined state variables
+    String displayText = "$number1$operand$number2";
+    
     return Scaffold(
       body: SafeArea(
         bottom: false,
@@ -73,9 +77,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                   alignment: Alignment.bottomRight,
                   padding: const EdgeInsets.all(16),
                   child: Text(
-                    "$number1$operand$number2".isEmpty
-                        ? "0"
-                        : "$number1$operand$number2",
+                    // Display current expression/result, or "0" if empty
+                    displayText.isEmpty ? "0" : displayText,
                     style: const TextStyle(
                       fontSize: 48,
                       fontWeight: FontWeight.bold,
@@ -121,7 +124,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           child: Center(
             child: Text(
               value,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+              // Added color for visibility
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24, color: Colors.white),
             ),
           ),
         ),
@@ -147,7 +151,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     }
 
     if (value == Btn.calculate) {
-      calculate();
+      calculate(); // This is where the calculation happens
       return;
     }
 
@@ -157,12 +161,12 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   // ##############
   // calculates the result
   void calculate() {
-    if (number1.isEmpty) return;
-    if (operand.isEmpty) return;
-    if (number2.isEmpty) return;
+    // FIX 1: Use double.tryParse to safely handle number conversion
+    final double? num1 = double.tryParse(number1);
+    final double? num2 = double.tryParse(number2);
 
-    final double num1 = double.parse(number1);
-    final double num2 = double.parse(number2);
+    // Ensure all components are valid before calculation
+    if (num1 == null || operand.isEmpty || num2 == null) return;
 
     var result = 0.0;
     switch (operand) {
@@ -176,18 +180,41 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         result = num1 * num2;
         break;
       case Btn.divide:
+        if (num2 == 0) {
+          // Handle division by zero
+          setState(() {
+            number1 = "Error";
+            operand = "";
+            number2 = "";
+          });
+          return;
+        }
         result = num1 / num2;
         break;
       default:
+        return;
     }
 
+    // FIX 2: Robust result formatting to remove trailing zeros and dot
+    String formattedResult = result.toString();
+    
+    // Check if the result is an integer (e.g., 2.0)
+    if (formattedResult.contains('.')) {
+        // Use a regular expression to trim trailing zeros and dot if it's the last character
+        formattedResult = formattedResult.replaceAll(RegExp(r"0*$"), "");
+        if (formattedResult.endsWith('.')) {
+            formattedResult = formattedResult.substring(0, formattedResult.length - 1);
+        }
+    }
+    
+    // If the result is too long, use a fixed precision for display
+    if (formattedResult.length > 12) {
+        formattedResult = result.toStringAsExponential(5);
+    }
+    
+    // FIX 3: Update state to show the result in number1
     setState(() {
-      number1 = result.toStringAsPrecision(3);
-
-      if (number1.endsWith(".0")) {
-        number1 = number1.substring(0, number1.length - 2);
-      }
-
+      number1 = formattedResult;
       operand = "";
       number2 = "";
     });
@@ -196,20 +223,30 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   // ##############
   // converts output to %
   void convertToPercentage() {
-    // ex: 434+324
     if (number1.isNotEmpty && operand.isNotEmpty && number2.isNotEmpty) {
-      // calculate before conversion
       calculate();
     }
 
     if (operand.isNotEmpty) {
-      // cannot be converted
-      return;
+      return; // Cannot convert if an operation is pending
     }
 
-    final number = double.parse(number1);
+    // Use tryParse to prevent errors on invalid string
+    final number = double.tryParse(number1);
+    if (number == null) return;
+
     setState(() {
-      number1 = "${(number / 100)}";
+      // Robust percentage formatting
+      String percentResult = (number / 100).toString();
+      
+      if (percentResult.contains('.')) {
+        percentResult = percentResult.replaceAll(RegExp(r"0*$"), "");
+        if (percentResult.endsWith('.')) {
+            percentResult = percentResult.substring(0, percentResult.length - 1);
+        }
+      }
+      
+      number1 = percentResult;
       operand = "";
       number2 = "";
     });
@@ -229,11 +266,15 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   // delete one from the end
   void delete() {
     if (number2.isNotEmpty) {
-      // 12323 => 1232
       number2 = number2.substring(0, number2.length - 1);
     } else if (operand.isNotEmpty) {
       operand = "";
     } else if (number1.isNotEmpty) {
+      // FIX: Handle "Error" state by clearing everything if delete is pressed
+      if (number1 == "Error") {
+          clearAll();
+          return;
+      }
       number1 = number1.substring(0, number1.length - 1);
     }
 
@@ -243,37 +284,57 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   // #############
   // appends value to the end
   void appendValue(String value) {
-    // number1 opernad number2
-    // 234       +      5343
+    bool isOperator = (value != Btn.dot && int.tryParse(value) == null && value != Btn.calculate);
 
-    // if is operand and not "."
-    if (value != Btn.dot && int.tryParse(value) == null) {
-      // operand pressed
-      if (operand.isNotEmpty && number2.isNotEmpty) {
-        // TODO calculate the equation before assigning new operand
+    // If an operator is pressed
+    if (isOperator) {
+      // If a full expression is ready (e.g., 5+5), calculate it first
+      if (number1.isNotEmpty && operand.isNotEmpty && number2.isNotEmpty) {
         calculate();
+        // number1 now holds the result, which the new operator will use
       }
-      operand = value;
+      
+      // Only set the operand if number1 is not empty/Error
+      if (number1.isNotEmpty && number1 != "Error") {
+          operand = value;
+      }
     }
-    // assign value to number1 variable
+    // Assign value to number1
     else if (number1.isEmpty || operand.isEmpty) {
-      // check if value is "." | ex: number1 = "1.2"
+      // Clear Error state if a number is pressed
+      if (number1 == "Error") number1 = "";
+      
+      // Check for multiple dots
       if (value == Btn.dot && number1.contains(Btn.dot)) return;
+      
+      // Prepend "0" for dot if necessary
       if (value == Btn.dot && (number1.isEmpty || number1 == Btn.n0)) {
-        // ex: number1 = "" | "0"
         value = "0.";
       }
-      number1 += value;
+      
+      // Prevent leading zero
+      if (number1 == "0" && value != Btn.dot) {
+          number1 = value;
+      } else {
+          number1 += value;
+      }
     }
-    // assign value to number2 variable
-    else if (number2.isEmpty || operand.isNotEmpty) {
-      // check if value is "." | ex: number1 = "1.2"
+    // Assign value to number2
+    else if (operand.isNotEmpty) {
+      // Check for multiple dots
       if (value == Btn.dot && number2.contains(Btn.dot)) return;
+      
+      // Prepend "0" for dot if necessary
       if (value == Btn.dot && (number2.isEmpty || number2 == Btn.n0)) {
-        // number1 = "" | "0"
         value = "0.";
       }
-      number2 += value;
+      
+      // Prevent leading zero
+      if (number2 == "0" && value != Btn.dot) {
+          number2 = value;
+      } else {
+          number2 += value;
+      }
     }
 
     setState(() {});
@@ -291,7 +352,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
             Btn.divide,
             Btn.calculate,
           ].contains(value)
-        ? Colors.orange
-        : Colors.black87;
+            ? Colors.orange
+            : Colors.black87;
   }
 }
