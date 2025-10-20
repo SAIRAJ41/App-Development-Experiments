@@ -1,6 +1,10 @@
-# calc
+# Firebase with Calculator App
 
-A new Flutter project.
+A simple yet smart calculator app built with Flutter and integrated with Firebase Firestore to store and display calculation history.
+Performs basic arithmetic operations (+, −, ×, ÷, %).
+Stores each calculation (expression & result) in Firestore.
+Includes a History Screen to view past calculations.
+Designed with a clean dark UI for better readability.
 
 ## Getting Started
 
