@@ -19,6 +19,9 @@ An exploration of the Flutter framework by building a functional calculator app.
 5. React Native: To-Do List App
 This project uses the React Native framework to create a to-do list application. It focuses on using React components, managing application state, and building a cross-platform mobile app from a single codebase.
 
+6. Git & GitHub Basics
+This experiment focuses on understanding version control using Git and exploring GitHub as a collaboration platform. It includes learning key commands such as commit, push, pull, and branch management, as well as setting up repositories, tracking changes, and managing project versions efficiently.
+
 7. Registration Form :
 This project focuses on building a complete registration form UI that utilizes various input types, including text fields, radio buttons, and dropdown/select menus. The goal is to master form layout, state handling across multiple inputs, and implement basic client-side input validation logic.
 
