@@ -19,17 +19,26 @@ An exploration of the Flutter framework by building a functional calculator app.
 5. React Native: To-Do List App
 This project uses the React Native framework to create a to-do list application. It focuses on using React components, managing application state, and building a cross-platform mobile app from a single codebase.
 
+6. Git & GitHub Basics
+This experiment focuses on understanding version control using Git and exploring GitHub as a collaboration platform. It includes learning key commands such as commit, push, pull, and branch management, as well as setting up repositories, tracking changes, and managing project versions efficiently.
+
 7. Registration Form :
 This project focuses on building a complete registration form UI that utilizes various input types, including text fields, radio buttons, and dropdown/select menus. The goal is to master form layout, state handling across multiple inputs, and implement basic client-side input validation logic.
 
 8. Navigation App :
 An exploration into common mobile app navigation structures. This experiment implements both tab-based navigation (for quickly switching between main views) and a drawer navigation (a side menu for secondary or less-frequently used options). This is a crucial step for understanding how to structure a multi-screen, user-friendly mobile application.
 
-9. SQLite :
-This experiment extends the basic calculator app (Expt 4) by introducing local data persistence. Using SQLite, the app will store and retrieve a history of calculations, demonstrating how to perform basic CRUD operations directly on the device's storage. This is a practical application of the sqflite package in a Flutter environment.
+9. SQLite Integration (Calculator & To-Do List Apps)
+This experiment demonstrates how to integrate SQLite for offline data persistence in Flutter and React Native apps.
+The Calculator App stores calculation history locally using SQLite.
+The To-Do List App saves and retrieves tasks directly from the local database.
+This project focuses on performing CRUD operations, handling transactions, and maintaining local state efficiently.
 
-10. Firestore :
-Building on the React Native To-Do List (Expt 5), this project focuses on integrating a cloud database using Google Firestore. The goal is to make the to-do list sync across devices in real-time. This involves setting up the React Native environment for Firebase, managing asynchronous data streams, and understanding authentication for read/write permissions.
+10. Firebase Firestore Integration (Calculator & To-Do List Apps)
+This experiment extends the local storage functionality by integrating Firebase Firestore for real-time cloud storage.
+The Calculator App syncs calculation history with Firestore.
+The To-Do List App syncs tasks across devices using Firestore.
+It highlights connecting Flutter and React Native apps with Firebase, managing asynchronous data, and implementing cloud-based CRUD operations.
 
 11. Rest-Api :
 A mobile news application built with Flutter that demonstrates how to work with a live REST API. This app fetches and displays current news headlines by consuming the free newsapi.org service.A
