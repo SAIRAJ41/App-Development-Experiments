@@ -31,6 +31,9 @@ This experiment extends the basic calculator app (Expt 4) by introducing local d
 10. Firestore :
 Building on the React Native To-Do List (Expt 5), this project focuses on integrating a cloud database using Google Firestore. The goal is to make the to-do list sync across devices in real-time. This involves setting up the React Native environment for Firebase, managing asynchronous data streams, and understanding authentication for read/write permissions.
 
+11. Rest-Api :
+A mobile news application built with Flutter that demonstrates how to work with a live REST API. This app fetches and displays current news headlines by consuming the free newsapi.org service.A
+
 📁 Repository Structure
 Each experiment is organized in its own folder, containing all the necessary source code files, a README.md specific to that project, and a screenshot of the output. This makes it easy to navigate and understand each individual experiment.
 
