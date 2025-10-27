@@ -41,7 +41,12 @@ The To-Do List App syncs tasks across devices using Firestore.
 It highlights connecting Flutter and React Native apps with Firebase, managing asynchronous data, and implementing cloud-based CRUD operations.
 
 11. Rest-Api :
-A mobile news application built with Flutter that demonstrates how to work with a live REST API. This app fetches and displays current news headlines by consuming the free newsapi.org service.A
+A mobile news application built with Flutter that demonstrates how to work with a live REST API. This app fetches and displays current news headlines by consuming the free newsapi.org service.
+
+12. Authorization :
+This experiment focuses on implementing secure user authentication and authorization using Firebase Authentication.
+It demonstrates sign-up, login, and logout functionality with both Email/Password and Google Sign-In methods.
+The experiment was implemented in Flutter, ensuring consistent user access control across platforms.
 
 📁 Repository Structure
 Each experiment is organized in its own folder, containing all the necessary source code files, a README.md specific to that project, and a screenshot of the output. This makes it easy to navigate and understand each individual experiment.
