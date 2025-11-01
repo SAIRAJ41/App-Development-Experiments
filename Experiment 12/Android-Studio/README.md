@@ -5,8 +5,13 @@ The experiment was implemented in Android Studio, ensuring consistent user acces
 
 ## Key Features:
 Secure user authentication using Firebase Authentication.
+
 Email & password registration and login system.
+
 Google Sign-In integration for quick access.
+
 Anonymous (guest) login support.
+
 Real-time user data storage in Firebase Firestore.
+
 Smooth navigation with session-based access control.
