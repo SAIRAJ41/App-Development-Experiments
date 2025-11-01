@@ -1,7 +1,7 @@
-# Authorization with Android Studio:
+# Authorization with React Native:
 This experiment focuses on implementing secure user authentication and authorization using Firebase Authentication.
 It demonstrates sign-up, login, and logout functionality with both Email/Password and Google Sign-In methods.
-The experiment was implemented in Android Studio, ensuring consistent user access control across platforms.
+The experiment was implemented in React Native, ensuring consistent user access control across platforms.
 
 ## Key Features:
 Secure user authentication using Firebase Authentication.
