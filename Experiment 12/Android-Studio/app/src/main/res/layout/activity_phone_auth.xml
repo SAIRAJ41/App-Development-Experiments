@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="24dp"
+    tools:context=".PhoneAuthActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login with Phone"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Phone Number Input -->
+    <EditText
+        android:id="@+id/etPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone Number (e.g., +16505551234)"
+        android:inputType="phone"
+        android:minHeight="48dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/edit_text_background"/>
+
+    <!-- Send OTP Button -->
+    <Button
+        android:id="@+id/btnSendOtp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send OTP"
+        android:minHeight="50dp"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- OTP Input -->
+    <!-- We make this invisible until the OTP is sent -->
+    <EditText
+        android:id="@+id/etOtp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter 6-Digit OTP"
+        android:inputType="number"
+        android:maxLength="6"
+        android:minHeight="48dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/edit_text_background"
+        android:visibility="gone"
+        tools:visibility="visible"/> <!-- 'tools:visibility' shows it in the editor -->
+
+    <!-- Verify OTP Button -->
+    <Button
+        android:id="@+id/btnVerifyOtp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Verify OTP and Login"
+        android:minHeight="50dp"
+        android:visibility="gone"
+        tools:visibility="visible"/> <!-- 'tools:visibility' shows it in the editor -->
+
+</LinearLayout>
