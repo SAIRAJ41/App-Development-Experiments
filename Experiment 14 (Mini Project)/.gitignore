@@ -1,3 +1,7 @@
+lib/services/const.dart
+.dart_tool
+.vscode
+
 # Miscellaneous
 *.class
 *.log
