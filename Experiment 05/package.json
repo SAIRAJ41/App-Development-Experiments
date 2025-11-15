@@ -3,6 +3,7 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
+    "test": "jest",
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
     "android": "expo start --android",
@@ -40,10 +41,17 @@
     "react-native-worklets": "0.5.1"
   },
   "devDependencies": {
+    "@testing-library/react-native": "^12.9.0",
+    "@types/jest": "^29.5.14",
     "@types/react": "~19.1.0",
+    "@types/react-test-renderer": "^19.1.0",
+    "babel-jest": "^30.2.0",
     "eslint": "^9.25.0",
     "eslint-config-expo": "~10.0.0",
+    "jest": "^29.7.0",
+    "jest-expo": "^54.0.13",
+    "react-test-renderer": "19.1.0",
+    "ts-jest": "^29.4.5",
     "typescript": "~5.9.2"
-  },
-  "private": true
+  }
 }
